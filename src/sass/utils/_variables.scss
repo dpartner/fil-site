@@ -1,0 +1,20 @@
+:root {
+  --brand-color: #2196f3;
+  --text-color: #757575;
+  --alternative-text-color: #ffffff;
+  --modal-text-color: #212121;
+  --no-active-color: #afb1b8;
+  --heading-color: #212121;
+  --invalid-color: #f44336;
+  --primary-background: #2f303a;
+  --secondary-background: #f5f4fa;
+  --body-background: #ffffff;
+  --footer-social-color: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  color: #757575;
+  font-size: 14px;
+  line-height: 1.7;
+}
