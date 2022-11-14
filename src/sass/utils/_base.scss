@@ -1,5 +1,9 @@
 /*-------------BASE------------- */
 
+body {
+  background-color: rgba(51, 51, 51, 1);
+}
+
 %title {
   font-weight: 700;
   font-size: 36px;
@@ -68,7 +72,10 @@ h2 {
 }
 
 h3 {
-  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-active-color);
+  margin-bottom: 25px;
 }
 
 img {
