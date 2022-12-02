@@ -1,16 +1,7 @@
 /*-------------BASE------------- */
 
 body {
-  background-color: rgba(51, 51, 51, 1);
-}
-
-%title {
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 1.2;
-  text-align: center;
-  letter-spacing: 0.03em;
-  color: var(--heading-color);
+  background-color: var(--bg-color);
 }
 
 .section {
@@ -42,29 +33,9 @@ body {
   }
 }
 
-%button {
-  font-family: inherit;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.9;
-  text-align: center;
-  letter-spacing: 0.06em;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-%button--primary {
-  color: var(--alternative-text-color);
-  background: var(--brand-color);
-  width: 200px;
-  padding: 10px 0;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  border: var(--brand-color);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  &:hover,
-  &:focus {
-    transform: scale(1.02);
-  }
+a {
+  text-decoration: none;
+  color: var(--text-color);
 }
 
 h2 {

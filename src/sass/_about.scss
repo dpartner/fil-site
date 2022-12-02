@@ -4,7 +4,7 @@
   background-size: contain;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-position: bottom;
+  background-position: center;
 }
 
 .about__container {
@@ -38,7 +38,6 @@
 .about__wrap {
   max-width: 70%;
   border: 2px solid var(--text-color);
-  border-radius: 10px;
   padding: 40px 30px;
   margin-bottom: 30px;
   display: flex;
@@ -46,17 +45,25 @@
   opacity: 0;
   transition: scale 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  &:nth-child(2n + 1) {
-    animation: lefttoright 600ms linear 500ms 1 forwards;
-  }
-  &:nth-child(2n) {
-    align-self: end;
-    animation: righttoleft 600ms linear 500ms forwards;
-  }
+  // &:nth-child(2n + 1) {
+  //   animation: lefttoright 600ms linear 500ms 1 forwards;
+  // }
+  // &:nth-child(2n) {
+  //   align-self: end;
+  //   animation: righttoleft 600ms linear 500ms forwards;
+  // }
   &:hover {
     // cursor: pointer;
     scale: 105%;
   }
+}
+
+.about__wrap--left.action {
+  animation: lefttoright 600ms linear forwards;
+}
+.about__wrap--right.action {
+  align-self: end;
+  animation: righttoleft 600ms linear forwards;
 }
 
 .about__icon {
