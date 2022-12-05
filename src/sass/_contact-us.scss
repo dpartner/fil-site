@@ -1,4 +1,6 @@
 .contact__section {
+  padding-top: 120px;
+  padding-bottom: 120px;
 }
 
 .contact__container {
@@ -33,6 +35,7 @@
   color: var(--bg-acent-color);
 }
 .secondary__button {
+  color: var(--bg-acent-color);
   min-width: 230px;
   padding: 18px 25px;
   border: 2px solid var(--bg-color);
