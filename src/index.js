@@ -1,6 +1,6 @@
 import throttle from 'lodash.throttle';
 
-const throttleScroll = throttle(scrollAbout, 700);
+const throttleScroll = throttle(scrollAbout, 200);
 
 const ref = {
   modalOpen: document.querySelectorAll('[data-modal-open]'),
@@ -48,12 +48,13 @@ window.addEventListener('scroll', throttleScroll);
 
 async function scrollAbout(e) {
   const documentRect = ref.about.firstElementChild.getBoundingClientRect();
-  // console.log(documentRect);
-  // console.log(document.documentElement.clientHeight);
+  console.log(documentRect);
+  console.log(document.documentElement.clientHeight);
   const delay = 300;
   if (
-    documentRect.bottom <
-    document.documentElement.clientHeight - documentRect.height
+    // documentRect.bottom <
+    // document.documentElement.clientHeight - documentRect.height
+    documentRect.bottom < document.documentElement.clientHeight
   ) {
     window.removeEventListener('scroll', throttleScroll);
     const aboutElements = ref.about.children;

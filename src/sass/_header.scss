@@ -14,9 +14,12 @@
   margin-right: 65px;
 }
 .header__menu-list {
-  display: flex;
-  align-items: center;
-  margin-right: auto;
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+  }
 }
 
 .header__menu-list-item {
