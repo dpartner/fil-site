@@ -213,7 +213,7 @@ function changeURLLanguage(lang) {
 }
 
 function changeLang(lang) {
-  for (key in langObj) {
+  for (const key in langObj) {
     let elem = document.querySelector('.lng-' + key);
     if (elem) {
       elem.textContent = langObj[key][lang];
