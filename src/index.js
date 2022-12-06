@@ -17,7 +17,6 @@ const ref = {
   langLinkArr: document.querySelectorAll('.header__language-list-link'),
 };
 
-console.log(ref.langLinkArr);
 /////////////////////////////Запуск анимации/////////////////////////////////
 
 function isShow() {
