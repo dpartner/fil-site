@@ -162,9 +162,9 @@ window.matchMedia('(min-width: 768px)').addEventListener('change', e => {
 // const allLang = ['ru', 'pl', 'de', 'en'];
 let allLang = [];
 
-for (link of ref.langLinkArr) {
+for (linken of ref.langLinkArr) {
   //вешаем слушателя событий на все ссылки языков и сразу меняем активный язык
-  link.addEventListener('click', e => {
+  linken.addEventListener('click', e => {
     for (link of ref.langLinkArr) {
       link.classList.remove('header__language-list-link--active');
     }
