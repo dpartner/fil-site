@@ -5,10 +5,11 @@
 
 .header__container {
   display: flex;
-  // justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding-top: 15px;
   padding-bottom: 15px;
+  padding-right: 80px;
 }
 
 .header__logo {
@@ -47,7 +48,7 @@
 }
 .header__language-list-item {
   &:not(:last-child) {
-    margin-right: 6px;
+    margin-right: 7px;
   }
 }
 
@@ -55,8 +56,8 @@
   padding: 5px;
   font-style: normal;
   font-weight: 500;
-  font-size: 12px;
-  line-height: 14px;
+  font-size: 14px;
+  line-height: 16px;
   background-color: var(--button-bg);
   opacity: 70%;
   display: flex;
@@ -128,13 +129,13 @@
   transition: transform 250ms ease-in-out;
 }
 .open-button__line--top {
-  top: -15%;
+  top: -5%;
   transform-origin: top left;
 }
 .open-button__line--center {
-  top: 35%;
+  top: 45%;
 }
 .open-button__line--bottom {
-  top: 85%;
+  top: 95%;
   transform-origin: bottom left;
 }

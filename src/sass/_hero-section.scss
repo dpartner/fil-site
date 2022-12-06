@@ -4,6 +4,13 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position-x: -100px;
+
+  @media screen and (min-width: 768px) {
+    height: 700px;
+  }
+  @media screen and (min-width: 1200px) {
+    height: 800px;
+  }
 }
 
 .hero__container {
@@ -38,29 +45,36 @@
   height: 50px;
   width: 200px;
   z-index: 2;
-  position: absolute;
+  // position: absolute;
   top: 180;
-  border-left: 10px solid var(--text-active-color);
-  border-top: 10px solid var(--text-active-color);
-  border-right: 10px solid var(--text-active-color);
+  border: 6px solid var(--text-active-color);
+  border-bottom: transparent;
+  opacity: 0;
+  transform: translateY(-50%);
+  transition: opacity 850ms ease-in-out, transform 650ms ease-in-out;
   @media screen and (min-width: 480px) {
-    // font-size: 86px;
-    // height: 100px;
-    // width: 350px;
-    // top: 100;
     height: 80px;
     width: 300px;
-    top: 130;
+    border: 8px solid var(--text-active-color);
+    border-bottom: transparent;
+    // top: 130;
   }
   @media screen and (min-width: 768px) {
     height: 100px;
     width: 350px;
-    top: 110;
+    border: 10px solid var(--text-active-color);
+    border-bottom: transparent;
+    // top: 110;
   }
   @media screen and (min-width: 1200px) {
     height: 120px;
     width: 420px;
-    top: 70;
+    // top: 70;
+  }
+
+  &.is-show {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 .hero__logo-text {
@@ -82,25 +96,37 @@
   height: 50px;
   width: 200px;
   z-index: 2;
-  position: absolute;
+  // position: absolute;
   bottom: 180;
-  border-left: 10px solid var(--text-active-color);
-  border-bottom: 10px solid var(--text-active-color);
-  border-right: 10px solid var(--text-active-color);
+  border: 6px solid var(--text-active-color);
+  border-top: transparent;
+  opacity: 0;
+  transform: translateY(50%);
+  transition: opacity 850ms ease-in-out, transform 650ms ease-in-out;
   @media screen and (min-width: 480px) {
     height: 80px;
     width: 300px;
-    bottom: 130;
+    border: 8px solid var(--text-active-color);
+    border-top: transparent;
+
+    // bottom: 130;
   }
   @media screen and (min-width: 768px) {
     height: 100px;
     width: 350px;
-    bottom: 110;
+    border: 10px solid var(--text-active-color);
+    border-top: transparent;
+    // bottom: 110;
   }
   @media screen and (min-width: 1200px) {
     height: 120px;
     width: 420px;
-    bottom: 70;
+    // bottom: 70;
+  }
+
+  &.is-show {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

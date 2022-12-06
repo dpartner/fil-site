@@ -1,4 +1,5 @@
 import throttle from 'lodash.throttle';
+import { langObj } from './lng';
 
 const throttleScrollAbout = throttle(scrollAbout, 200);
 const throttleScrollDelivery = throttle(scrollDelivery, 200);
@@ -11,12 +12,28 @@ const ref = {
   delivery: document.querySelector('.delivery__container'),
   mobToggle: document.querySelector('.mob-menu__open-button'),
   mobMenu: document.querySelector('.js-mobile-menu'),
+  heroTopLogo: document.querySelector('.hero__logo-top'),
+  heroBottomLogo: document.querySelector('.hero__logo-bottom'),
+  langLinkArr: document.querySelectorAll('.header__language-list-link'),
 };
+
+/////////////////////////////Запуск анимации/////////////////////////////////
+
+function isShow() {
+  ref.heroTopLogo.classList.add('is-show');
+  ref.heroBottomLogo.classList.add('is-show');
+}
+isShow();
+
+/////////////////////////////Модалка/////////////////////////////////
 
 for (let button of ref.modalOpen) {
   button.addEventListener('click', function (e) {
     ref.backdrop.classList.remove('is-hidden');
     window.addEventListener('keydown', escapeKeyCloseModal);
+    document
+      .querySelector('.backdrop')
+      .addEventListener('click', backdropCloseModal);
   });
 }
 
@@ -25,14 +42,26 @@ ref.modalClose.addEventListener('click', closeModal);
 function closeModal(e) {
   ref.backdrop.classList.add('is-hidden');
   window.removeEventListener('keydown', escapeKeyCloseModal);
+  window.removeEventListener('keydown', backdropCloseModal);
 }
 
 function escapeKeyCloseModal(e) {
   if (e.code === 'Escape') {
     ref.backdrop.classList.add('is-hidden');
     window.removeEventListener('keydown', escapeKeyCloseModal);
+    window.removeEventListener('keydown', backdropCloseModal);
   }
 }
+
+function backdropCloseModal(e) {
+  if (e.target.classList.contains('backdrop')) {
+    ref.backdrop.classList.add('is-hidden');
+    window.removeEventListener('keydown', escapeKeyCloseModal);
+    window.removeEventListener('keydown', backdropCloseModal);
+  }
+}
+
+/////////////////////////////Плавная навигация/////////////////////////////////
 
 const smoothLinks = document.querySelectorAll('[nav]');
 for (let smoothLink of smoothLinks) {
@@ -126,3 +155,68 @@ window.matchMedia('(min-width: 768px)').addEventListener('change', e => {
     toggleMobileMenu();
   }
 });
+
+/////////////// Multilanguages ///////////////////////////////////////////////
+
+// const allLang = ['ru', 'pl', 'de', 'en'];
+let allLang = [];
+
+for (link of ref.langLinkArr) {
+  //вешаем слушателя событий на все ссылки языков и сразу меняем активный язык
+  link.addEventListener('click', e => {
+    for (link of ref.langLinkArr) {
+      link.classList.remove('header__language-list-link--active');
+    }
+    e.currentTarget.classList.add('header__language-list-link--active');
+    activeLang();
+  });
+}
+
+function changeActiveLangLink(hash) {
+  for (link of ref.langLinkArr) {
+    link.classList.remove('header__language-list-link--active');
+    if (link.lang === hash) {
+      link.classList.add('header__language-list-link--active');
+    }
+  }
+}
+
+function activeLang() {
+  let lang = '';
+  //определяем какой язык после хэша
+  let hash = window.location.hash;
+  hash = hash.substr(1);
+  //если такого языка в массиве всех языков нет, ставим СТАНДАРТНЫЙ
+  if (!allLang.includes(hash)) {
+    location.href = window.location.pathname + '#ru';
+
+    //меняем активную ссылку на язык
+    changeActiveLangLink(hash);
+  }
+  // добавляем языки в массив всех языков
+  for (link of ref.langLinkArr) {
+    if (!allLang.includes(link.lang)) {
+      allLang.push(link.lang);
+    }
+    //меняем язык на сайте и после хэша в URL
+    if (link.classList.contains('header__language-list-link--active')) {
+      lang = link.lang;
+      changeLang(lang);
+      changeURLLanguage(lang);
+    }
+  }
+}
+function changeURLLanguage(lang) {
+  location.href = window.location.pathname + '#' + lang;
+  // location.reload();
+}
+
+function changeLang(lang) {
+  for (key in langObj) {
+    let elem = document.querySelector('.lng-' + key);
+    if (elem) {
+      elem.textContent = langObj[key][lang];
+    }
+  }
+}
+activeLang();
