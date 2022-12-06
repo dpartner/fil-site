@@ -162,10 +162,10 @@ window.matchMedia('(min-width: 768px)').addEventListener('change', e => {
 // const allLang = ['ru', 'pl', 'de', 'en'];
 let allLang = [];
 
-for (linken of ref.langLinkArr) {
+for (const link of ref.langLinkArr) {
   //вешаем слушателя событий на все ссылки языков и сразу меняем активный язык
-  linken.addEventListener('click', e => {
-    for (link of ref.langLinkArr) {
+  link.addEventListener('click', e => {
+    for (const link of ref.langLinkArr) {
       link.classList.remove('header__language-list-link--active');
     }
     e.currentTarget.classList.add('header__language-list-link--active');
@@ -174,7 +174,7 @@ for (linken of ref.langLinkArr) {
 }
 
 function changeActiveLangLink(hash) {
-  for (link of ref.langLinkArr) {
+  for (const link of ref.langLinkArr) {
     link.classList.remove('header__language-list-link--active');
     if (link.lang === hash) {
       link.classList.add('header__language-list-link--active');
@@ -195,7 +195,7 @@ function activeLang() {
     changeActiveLangLink(hash);
   }
   // добавляем языки в массив всех языков
-  for (link of ref.langLinkArr) {
+  for (const link of ref.langLinkArr) {
     if (!allLang.includes(link.lang)) {
       allLang.push(link.lang);
     }
