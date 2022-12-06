@@ -1,5 +1,6 @@
 import throttle from 'lodash.throttle';
-import { langObj } from './lng.js';
+import { langObj } from './js/lng';
+console.log(langObj);
 
 const throttleScrollAbout = throttle(scrollAbout, 200);
 const throttleScrollDelivery = throttle(scrollDelivery, 200);
