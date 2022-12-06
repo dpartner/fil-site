@@ -1,6 +1,5 @@
 import throttle from 'lodash.throttle';
 import { langObj } from './js/lng';
-console.log(langObj);
 
 const throttleScrollAbout = throttle(scrollAbout, 200);
 const throttleScrollDelivery = throttle(scrollDelivery, 200);
@@ -18,6 +17,7 @@ const ref = {
   langLinkArr: document.querySelectorAll('.header__language-list-link'),
 };
 
+console.log(ref.langLinkArr);
 /////////////////////////////Запуск анимации/////////////////////////////////
 
 function isShow() {
