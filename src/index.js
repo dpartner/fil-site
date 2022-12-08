@@ -1,5 +1,6 @@
 import throttle from 'lodash.throttle';
 import { langObj } from './js/lng';
+import IMask from 'imask';
 
 const throttleScrollAbout = throttle(scrollAbout, 200);
 const throttleScrollDelivery = throttle(scrollDelivery, 200);
@@ -60,6 +61,14 @@ function backdropCloseModal(e) {
     window.removeEventListener('keydown', backdropCloseModal);
   }
 }
+/////////////////////////////Маска телефона в модалке//////////////////////////////
+var phoneInput = document.querySelector('#modal-phone');
+
+var phoneMask = IMask(phoneInput, {
+  mask: '+00(000)000-00-00',
+  lazy: false, // make placeholder always visible
+  placeholderChar: '_', // defaults to '_'
+});
 
 /////////////////////////////Плавная навигация/////////////////////////////////
 
@@ -186,12 +195,14 @@ function activeLang() {
   //определяем какой язык после хэша
   let hash = window.location.hash;
   hash = hash.substr(1);
+
   //если такого языка в массиве всех языков нет, ставим СТАНДАРТНЫЙ
   if (!allLang.includes(hash)) {
-    location.href = window.location.pathname + '#ru';
-
+    location.href = window.location.pathname + '#en';
+    hash = 'en';
     //меняем активную ссылку на язык
     changeActiveLangLink(hash);
+    // document.location.reload();
   }
   // добавляем языки в массив всех языков
   for (const link of ref.langLinkArr) {

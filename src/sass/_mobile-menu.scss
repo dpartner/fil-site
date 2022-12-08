@@ -6,7 +6,7 @@
   height: 100vh;
   background-color: var(--text-active-color);
   z-index: 995;
-  padding: 48px 40px;
+  padding: 80px 40px 48px 40px;
   transform: translateX(100%);
   transition: transform 250ms ease-in-out, opacity 350ms ease-in-out;
   // overflow-y: scroll;
@@ -56,7 +56,7 @@
 
 .mobile-menu__contacts {
   margin-top: 64px;
-  margin-bottom: 64px;
+  // margin-bottom: 64px;
 }
 
 .mobile-menu__contacts-item:not(:last-child) {
